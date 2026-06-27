@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addMessage, setLoading } from '../features/chatSlice'
-import Button from './Button'
 import { sendMessageToGroq } from '../services/groqService'
 
 function Input() {
@@ -37,29 +36,24 @@ function Input() {
   }
 
   return (
-    <div className="flex flex-col gap-2 p-3 bg-neutral-900 border-t border-neutral-700">
-      {/* {error && (
-        <div className="bg-red-900 text-red-100 px-3 py-2 rounded-md text-sm ">
-          ⚠️ {error}
-        </div>
-      )} */}
-
-      <div className="flex items-center gap-2">
+    <div className="w-full flex flex-col gap-2 p-2 md:p-3 bg-neutral-900">
+      <div className="flex items-center gap-2 w-full">
         <input
           type="text"
-          placeholder="Start typing"
+          placeholder="Start typing..."
           value={text}
           onChange={(e) => setText(e.target.value)}
           onKeyDown={handleKeyDown}
           autoFocus
-          className="text-center text-2xl flex-1 bg-neutral-800 text-white px-4 py-3 rounded-md outline-none placeholder-neutral-500"
+          className="flex-1 text-sm md:text-2xl bg-neutral-800 text-white px-3 md:px-4 py-2 md:py-3 rounded-md outline-none placeholder-neutral-500 min-w-0"
         />
 
-        <Button
-          label="send"
-          className="bg-blue-600 hover:bg-blue-500 text-2xl text-white px-4 py-3 rounded-md cursor-pointer shadow-lg active:shadow-sm active:translate-y-0.5 transition-all"
-          onclick={handleSend}
-        />
+        <button
+          onClick={handleSend}
+          className="flex-shrink-0 bg-blue-600 hover:bg-blue-500 text-sm md:text-2xl text-white px-3 md:px-4 py-2 md:py-3 rounded-md cursor-pointer shadow-lg active:shadow-sm active:translate-y-0.5 transition-all whitespace-nowrap"
+        >
+          Send
+        </button>
       </div>
     </div>
   )
