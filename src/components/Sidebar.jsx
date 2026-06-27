@@ -1,5 +1,5 @@
 import {useDispatch} from 'react-redux'
-import { createNewChat, clearChat } from '../features/ChatSlice'
+import { createNewChat, clearChat } from '../features/chatSlice'
 import { useState } from 'react'
 import Button from './Button'
 function Sidebar() {

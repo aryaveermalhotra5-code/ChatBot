@@ -1,7 +1,7 @@
 
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { addMessage, setLoading } from '../features/ChatSlice'
+import { addMessage, setLoading } from '../features/chatSlice'
 import Button from './Button'
 import { sendMessageToGemini } from '../services/geminiService'
 
