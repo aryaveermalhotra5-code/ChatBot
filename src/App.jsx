@@ -20,7 +20,7 @@ function App() {
   return (
     <div className='h-screen w-screen flex overflow-hidden bg-neutral-300'>
       {/* Mobile Sidebar - FIXED POSITION */}
-      <div className={`fixed md:relative md:w-54 h-screen bg-black transition-all duration-300 ${showSidebar ? 'w-54 z-40' : 'w-0 z-40'} md:block overflow-hidden`}>
+      <div className={` md:relative md:w-54 h-screen  transition-all duration-300 ${showSidebar ? 'w-54 z-40' : 'w-0 z-40'} md:block overflow-hidden`}>
         <Sidebar />
       </div>
 
@@ -35,12 +35,7 @@ function App() {
       {/* Chat Window - Main Area */}
       <div className='flex-1 flex flex-col relative w-full h-screen overflow-hidden'>
         {/* Mobile Menu Button - HIGHER Z-INDEX */}
-        <button 
-          onClick={() => setShowSidebar(!showSidebar)}
-          className='md:hidden absolute top-4 left-4 z-50  bg-blue-400 hover:bg-blue-700 text-white p-2 rounded-lg text-lg'
-        >
-          {showSidebar ? "✕" : "☰"}
-        </button>
+        
 
         {/* Chat Window Content */}
         <ChatWindow />
