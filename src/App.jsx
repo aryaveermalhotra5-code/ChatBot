@@ -2,10 +2,9 @@ import './App.css'
 import ChatWindow from './components/ChatWindow'
 import Sidebar from './components/Sidebar'
 import { initializeGroq } from './services/groqService'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 
 function App() {
-  const [showSidebar, setShowSidebar] = useState(false)
 
   useEffect(() => {
     const apiKey = import.meta.env.VITE_GROQ_API
@@ -18,26 +17,16 @@ function App() {
   }, [])
 
   return (
-    <div className='h-screen w-screen flex overflow-hidden bg-neutral-300'>
-      {/* Mobile Sidebar - FIXED POSITION */}
-      <div className={` md:relative md:w-54 h-screen  transition-all duration-300 ${showSidebar ? 'w-54 z-40' : 'w-0 z-40'} md:block overflow-hidden`}>
+    <div className='h-dvh w-screen flex overflow-hidden bg-neutral-300'>
+      <div className={` md:relative md:w-54 h-screen  transition-all duration-300 w-0 z-40 md:block overflow-hidden`}>
         <Sidebar />
       </div>
 
-      {/* Mobile Overlay - closes sidebar */}
-      {showSidebar && (
-        <div 
-          onClick={() => setShowSidebar(false)}
-          className='md:hidden fixed inset-0 bg-black bg-opacity-50 z-30'
-        />
-      )}
+      
 
-      {/* Chat Window - Main Area */}
       <div className='flex-1 flex flex-col relative w-full h-screen overflow-hidden'>
-        {/* Mobile Menu Button - HIGHER Z-INDEX */}
         
 
-        {/* Chat Window Content */}
         <ChatWindow />
       </div>
     </div>

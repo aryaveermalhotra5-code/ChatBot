@@ -3,7 +3,7 @@ import Message from './MessageList'
 
 function ChatWindow() {
   return (
-    <div className='flex-1 flex flex-col h-dvh bg-slate-50 w-full overflow-hidden'>
+    <div className='flex-1 flex flex-col h-full bg-slate-50 w-full overflow-hidden'>
       {/* Messages container - scrollable */}
       <div className='flex-1 overflow-y-auto'>
         <Message />
