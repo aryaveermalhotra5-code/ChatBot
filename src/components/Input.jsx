@@ -1,9 +1,8 @@
-
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addMessage, setLoading } from '../features/chatSlice'
 import Button from './Button'
-import { sendMessageToGemini } from '../services/geminiService'
+import { sendMessageToGroq } from '../services/groqService'
 
 function Input() {
   const [text, setText] = useState("")
@@ -19,7 +18,7 @@ function Input() {
     dispatch(setLoading(true))
 
     try {
-      const response = await sendMessageToGemini(text)
+      const response = await sendMessageToGroq(text)
       
       dispatch(addMessage({ role: "bot", content: response }))
     } catch (err) {
@@ -67,7 +66,3 @@ function Input() {
 }
 
 export default Input
-
-
-
-
